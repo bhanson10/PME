@@ -71,12 +71,6 @@ function varargout = pme_cut2pdf(Z, W, varargin)
         for j = 1:d
             X(:,j) = grids{j}(:);
         end
-    else 
-        Omega = zeros(d, 2);
-        for i = 1:d
-            Omega(i, 1) = min(X(:, i)) - 0.1 * (max(X(:, i)) - min(X(:, i))); 
-            Omega(i, 2) = max(X(:, i)) + 0.1 * (max(X(:, i)) - min(X(:, i))); 
-        end
     end
     if ~exist("opts", "var")
         opts = optimoptions('fminunc', ...
@@ -90,7 +84,7 @@ function varargout = pme_cut2pdf(Z, W, varargin)
     end
     
     [Mi, E] = cut2mom(Z, W, M),
-    l = solve_pme_eqns(Mi, E, X, Omega, opts);
+    l = solve_pme_eqns(Mi, E, X, opts);
     pdf = make_pme_pdf(l, E);
 
     P = pdf(X); P = P ./ sum(P);

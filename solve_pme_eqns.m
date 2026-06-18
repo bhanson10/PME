@@ -1,7 +1,7 @@
-function lambda = solve_pme_eqns(M, E, X, Omega, opts)
+function lambda = solve_pme_eqns(M, E, X, opts)
 % SOLVE_PME Maximum-entropy moment matching
 %
-% lambda = solve_pme(M, E, X, Omega)
+% lambda = solve_pme(M, E, X)
 %
 % Inputs
 % -------
@@ -9,7 +9,6 @@ function lambda = solve_pme_eqns(M, E, X, Omega, opts)
 % E      : p x d exponent matrix
 %          E(i,:) = exponents for basis function i
 % X      : N x d quadrature points
-% Omega  : d x 2 domain bounds
 %
 % Output
 % -------
@@ -31,7 +30,7 @@ function lambda = solve_pme_eqns(M, E, X, Omega, opts)
 %
 % which is strictly convex.
 
-    if nargin < 5 || isempty(opts)
+    if nargin < 4 || isempty(opts)
         opts = optimoptions('fminunc', ...
             'Algorithm','trust-region', ...
             'SpecifyObjectiveGradient',true, ...
@@ -45,7 +44,7 @@ function lambda = solve_pme_eqns(M, E, X, Omega, opts)
     [N,d] = size(X);
     p     = size(E,1);
     
-    vol = prod(Omega(:,2)-Omega(:,1));
+    vol = prod(X(1,:)-X(end,:));
     w   = vol/N;
     
     %% ------------------------------------------------------------
