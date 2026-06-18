@@ -1,11 +1,11 @@
 # Conjugate Unscented Transform to PDF using Principal of Maximum Entropy (PME)
 This MATLAB function takes the conjugate unscented transform (CUT) weighted sigma points and generates the probability distribution function (PDF) generated considering the principal of maximum entropy (PME), following Adurthi et al. [1]. <br>
 
-For a probability distribution function (PDF) $p(\bm{x})$, Shannon's entropy of the random variable $\bm{x}$ is given by
+For a probability distribution function (PDF) $p(\bf{x})$, Shannon's entropy of the random variable $\bf{x}$ is given by
 
 $$
 \begin{equation}
-    H(\bm{x}) = -\int_{\Omega} p(\bm{x})\log\{p(\bm{x})\}d\bm{x}
+    H(\bf{x}) = -\int_{\Omega} p(\bf{x})\log\{p(\bf{x})\}d\bf{x}
 \end{equation}
 $$
 
@@ -14,13 +14,13 @@ where the integration is over the support $\Omega$ of the PDF. Entropy is a real
 $$
 \begin{equation}
     \begin{aligned}
-        \max_{p(\bm{x})} &:-\int_{\Omega} p(\bm{x})\log\{p(\bm{x})\}d\bm{x} \\
-        \text{subject to} &: \int_{\Omega} g_i(\bm{x}) p(\bm{x}) d\bm{x} = \mathbb{E}[g_i(\bm{x})] \triangleq M_i \quad \text{for} \quad i=1,2,\dots,p,
+        \max_{p(\bf{x})} &:-\int_{\Omega} p(\bf{x})\log\{p(\bf{x})\}d\bf{x} \\
+        \text{subject to} &: \int_{\Omega} g_i(\bf{x}) p(\bf{x}) d\bf{x} = \mathbb{E}[g_i(\bf{x})] \triangleq M_i \quad \text{for} \quad i=1,2,\dots,p,
     \end{aligned}
 \end{equation}
 $$
 
-where the set of functions $g_i(\bm{x})$ are the multidimensional monomials that represent moments of various orders. <br>
+where the set of functions $g_i(\bf{x})$ are the multidimensional monomials that represent moments of various orders. <br>
 
 This function is meant to be used in tandem with [CUT.m](https://github.com/bhanson10/CUT). <br>
 
