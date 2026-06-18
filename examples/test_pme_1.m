@@ -3,7 +3,7 @@ clear all; close all; clc; format shortG;
 %% parameters
 load("colors.mat"); 
 mu = [1; 2]; S = [1 0.4; 0.4 1]; M = 2; 
-[Z, W] = CUT6(mu, S); 
+[Z, W] = cut6(mu, S); 
 [X, P, l] = pme_cut2pdf(Z, W, 'M', M); 
 
 l,

@@ -4,7 +4,7 @@ clear all; close all; clc; format long;
 tic,
 load("colors.mat"); M = 2; n = 25; d = 4; 
 mu = randn(d, 1); A = randn(d, d); S = A*A';     
-[Z, W] = CUT6(mu, S);
+[Z, W] = cut6(mu, S);
 [X, P, l] = pme_cut2pdf(Z, W, 'M', M, 'n', n); 
 
 l,

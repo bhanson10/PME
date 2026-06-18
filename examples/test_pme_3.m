@@ -8,7 +8,7 @@ ts = reshape(t,[1, 1, length(t)]); t = t';
 mu0 = zeros(d, 1); S0 = eye(d); 
 
 %% CUT
-[Z0, W] = CUT6(mu0, S0); N = size(Z0, 1);
+[Z0, W] = cut6(mu0, S0); N = size(Z0, 1);
 Z0 = reshape(Z0,[N,d,1]);
 Z = Z0 ./ (1 - Z0 .* ts);
 
@@ -37,8 +37,8 @@ plot_nongaussian_surface(XY, 'P', P0(:), 'p', p); clear p;
 title("$t=0$", 'FontSize', 28, 'FontName', 'times', 'Interpreter', 'latex');
 
 % reconstruct, initial
-mu_0_r = reconstruct_CUT(squeeze(Z(:, :, 1)), W, 1, 6); % \mathcal{N}(\mu, \Sigma)
-S_0_r = reconstruct_CUT(squeeze(Z(:, :, 1)), W, 2, 6); % \mathcal{N}(\mu, \Sigma)
+mu_0_r = reconstruct_cut(squeeze(Z(:, :, 1)), W, 1, 6); % \mathcal{N}(\mu, \Sigma)
+S_0_r = reconstruct_cut(squeeze(Z(:, :, 1)), W, 2, 6); % \mathcal{N}(\mu, \Sigma)
 [X_0_r, P_0_r] = pme_cut2pdf(squeeze(Z(:, :, 1)), W, 'M', M); % PME (order M)
 scatter(squeeze(Z(:, 1, 1)), squeeze(Z(:, 2, 1)), 250, "d", "filled", "MarkerFaceColor", hanred, "HandleVisibility", "off");  
 p.color = hangreen; p.ls = "-"; p.lw = 3; 
@@ -68,8 +68,8 @@ title("$t=$ " + num2str(t_i), 'FontSize', 28, 'FontName', 'times', 'Interpreter'
 
 % reconstruct, middle
 [X_i_r, P_i_r] = pme_cut2pdf(squeeze(Z(:, :, i)), W, 'M', M); 
-mu_i_r = reconstruct_CUT(squeeze(Z(:, :, i)), W, 1, 6); 
-S_i_r = reconstruct_CUT(squeeze(Z(:, :, i)), W, 2, 6); 
+mu_i_r = reconstruct_cut(squeeze(Z(:, :, i)), W, 1, 6); 
+S_i_r = reconstruct_cut(squeeze(Z(:, :, i)), W, 2, 6); 
 scatter(squeeze(Z(:, 1, i)), squeeze(Z(:, 2, i)), 250, "d", "filled", "MarkerFaceColor", hanred, "HandleVisibility", "off");  
 p.color = hangreen; p.ls = "-"; p.lw = 3; 
 plot_nongaussian_surface(X_i_r, 'P', P_i_r, 'p', p);
@@ -90,8 +90,8 @@ title("$t=$ " + num2str(t(end)), 'FontSize', 28, 'FontName', 'times', 'Interpret
 
 % reconstruct, final
 [X_f_r, P_f_r] = pme_cut2pdf(squeeze(Z(:, :, end)), W, 'M', M);
-mu_f_r = reconstruct_CUT(squeeze(Z(:, :, end)), W, 1, 6); 
-S_f_r = reconstruct_CUT(squeeze(Z(:, :, end)), W, 2, 6); 
+mu_f_r = reconstruct_cut(squeeze(Z(:, :, end)), W, 1, 6); 
+S_f_r = reconstruct_cut(squeeze(Z(:, :, end)), W, 2, 6); 
 scatter(squeeze(Z(:, 1, end)), squeeze(Z(:, 2, end)), 250, "d", "filled", "MarkerFaceColor", hanred, "HandleVisibility", "off");  
 p.color = hangreen; p.ls = "-"; p.lw = 3; 
 plot_nongaussian_surface(X_f_r, 'P', P_f_r, 'p', p);
