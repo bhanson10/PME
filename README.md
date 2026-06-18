@@ -22,7 +22,7 @@ $$
 
 where the set of functions $g_i(\bf{x})$ are the multidimensional monomials that represent moments of various orders. <br>
 
-This function is meant to be used in tandem with [CUT.m](https://github.com/bhanson10/CUT). <br>
+This function is meant to be used in tandem with the [CUT repo](https://github.com/bhanson10/CUT). <br>
 
 ## Examples
 I provide 3 examples on how to use the directory. Here are three figures created from test_pme_1.m, test_pme_2.m, and test_pme_3.m. 
