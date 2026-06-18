@@ -1,5 +1,5 @@
 # Conjugate Unscented Transform to PDF using Principal of Maximum Entropy (PME)
-This MATLAB function takes the conjugate unscented transform (CUT) weighted sigma points and generates the probability distribution function (PDF) generated considering the principal of maximum entropy (PME), following Adurthi et al. [1]. <br>
+These MATLAB functions takes the conjugate unscented transform (CUT) weighted sigma points and generates the probability distribution function (PDF) generated considering the principal of maximum entropy (PME), following Adurthi et al. [1]. <br>
 
 For a probability distribution function (PDF) $p(\bf{x})$, Shannon's entropy of the random variable $\bf{x}$ is given by
 
@@ -25,12 +25,12 @@ where the set of functions $g_i(\bf{x})$ are the multidimensional monomials that
 This function is meant to be used in tandem with [CUT.m](https://github.com/bhanson10/CUT). <br>
 
 ## Examples
-I provide 3 examples on how to use PME.m. Here are three figures created from test_PME_1.m, test_PME_2.m, and test_PME_3.m. 
-![test_PME_1](./examples/test_PME_1.png)
+I provide 3 examples on how to use the directory. Here are three figures created from test_pme_1.m, test_pme_2.m, and test_pme_3.m. 
+![test_PME_1](./examples/test_pme_1.png)
 
-![test_PME_2](./examples/test_PME_2.png)
+![test_PME_2](./examples/test_pme_2.png)
 
-![test_PME_3](./examples/test_PME_3.png)
+![test_PME_3](./examples/test_pme_3.png)
 
 <br><br>Please direct any questions to blhanson@ucsd.edu. <br><br>
 
