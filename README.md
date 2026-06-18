@@ -26,6 +26,7 @@ This function is meant to be used in tandem with [CUT.m](https://github.com/bhan
 
 ## Examples
 I provide 3 examples on how to use the directory. Here are three figures created from test_pme_1.m, test_pme_2.m, and test_pme_3.m. 
+
 ![test_PME_1](./examples/test_pme_1.png)
 
 ![test_PME_2](./examples/test_pme_2.png)
