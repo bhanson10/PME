@@ -1,4 +1,4 @@
-function lambda = solve_pme_eqns(M, E, X, opts)
+function lambda = solve_pme_eqns(M, E, X, Omega, opts)
 % SOLVE_PME Maximum-entropy moment matching
 %
 % lambda = solve_pme(M, E, X)
@@ -9,6 +9,7 @@ function lambda = solve_pme_eqns(M, E, X, opts)
 % E      : p x d exponent matrix
 %          E(i,:) = exponents for basis function i
 % X      : N x d quadrature points
+% Omega  : d x 2 domain bounds
 %
 % Output
 % -------
@@ -44,7 +45,7 @@ function lambda = solve_pme_eqns(M, E, X, opts)
     [N,d] = size(X);
     p     = size(E,1);
     
-    vol = prod(X(1,:)-X(end,:));
+    vol = prod(Omega(:,2)-Omega(:,1));
     w   = vol/N;
     
     %% ------------------------------------------------------------
